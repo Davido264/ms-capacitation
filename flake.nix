@@ -5,9 +5,9 @@
     nixpkgs.url = "flake:nixpkgs/nixos-23.05";
   };
 
-  outputs = inputs:
+  outputs = { self, nixpkgs }:
     let
-      pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
       name = "Python odoo shell";
 
       systems = [
@@ -16,12 +16,49 @@
       ];
 
       forAllSystems = fn:
-        inputs.nixpkgs.lib.genAttrs systems
-        (system: fn { pkgs = import inputs.nixpkgs { inherit system; }; });
+        nixpkgs.lib.genAttrs systems
+        (system: fn { pkgs = import nixpkgs { inherit system; }; inherit system; });
+
+      pkgs_libjpeg_8d = import (builtins.fetchTarball {
+        url = "https://github.com/NixOS/nixpkgs/archive/19f768a97808da4c8700ae24513ab557801be12c.tar.gz";
+      }) {};
 
     in
     {
-      devShells = forAllSystems ({ pkgs }: {
+      packages = forAllSystems({ pkgs, ... }: {
+        default = pkgs.stdenv.mkDerivation {
+          name = "wkhtmltopdf";
+
+          src = pkgs.fetchurl {
+            url = "https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.bionic_amd64.deb";
+            sha256 = "sha256-20j6GgQzCcS/6Mjg443AbBg/ghWZ3YjU486kfFpdTNM=";
+          };
+
+          phases = [ "unpackPhase" "installPhase" ];
+          unpackPhase = "${pkgs.dpkg}/bin/dpkg-deb -x $src .";
+          installPhase = ''
+            mkdir $out
+            cp -rv . $out/
+          '';
+
+          nativeBuildInputs = [
+            pkgs.autoPatchelfHook
+          ];
+
+          buildInputs = with pkgs; [
+            pkgs_libjpeg_8d.libjpeg_original
+            freetype
+            xorg.libX11
+            xorg.libXrender
+            openssl_1_1
+            fontconfig
+            # libstdc++
+            stdenv.cc.cc.lib
+          ];
+        };
+      });
+
+      devShells = forAllSystems ({ pkgs, system }: {
         default = pkgs.mkShell {
           inherit name;
           buildInputs = with pkgs; [
@@ -55,6 +92,9 @@
 
             # Required for VS Code extensions
             stdenv.cc.cc.lib
+
+            self.packages.${system}.default
+
           ];
 
           shellHook = ''
