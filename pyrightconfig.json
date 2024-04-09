@@ -1,0 +1,4 @@
+{
+    "stubPath": "stubs/odoo",
+    "exclude": [".idea", ".ropeproject", "logs", "bin", "filestore", "poetry.lock", ".venv"]
+}

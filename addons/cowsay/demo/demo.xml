@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+          <record id="cowsay.object0" model="cowsay.cowsay">
+            <field name="name">Walter</field>
+            <field name="message">I'm Walter and I am a cow</field>
+            <field name="description">He is Walter and he is a cow</field>
+          </record>
+
+          <record id="cowsay.object0" model="cowsay.cowsay">
+            <field name="name">Tom</field>
+            <field name="message">You are deeply attached to your friends and acquaintances.</field>
+            <field name="description">Tom is a genius</field>
+          </record>
+    </data>
+</odoo>

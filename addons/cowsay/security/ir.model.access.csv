@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cowsay_cowsay,access_cowsay_cowsay,model_cowsay_cowsay,,1,1,1,1
