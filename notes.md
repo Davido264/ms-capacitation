@@ -136,5 +136,31 @@ class CowOwner:
     foo : fields.Many2one("res.partner",domain=["&",("foo","=",True),("bar","ilike","faz")])
 ```
 
+## Computed values and Onchange
+- La clases de `fields` aceptan el argumento `compute`, este parámetro
+- el método con el nombre del valor para `compute` debe tener un decorador de `api`.
+- cabe recalcar que `self` es una lista de elementos
+```python
+bar = fields.Text(compute="_bar")
+
+@api.depends("foo")
+def _bar(self):
+    for el in self:
+        el.bar = 'fizzbuzz'
+```
+- También se puede utilizar los decoradores `onchange` y `ondelete`
+```python
+a = fields.Text(compute="_a")
+
+@api.onchange("foo","bar")
+def _a(self):
+    for el in self:
+        el.a = f"{self.foo} says ${self.bar}"
+```
+
+
+## Wizard
+- Components that inherit from `TransientModel`, meant to be used on dialogboxes
+
 
 
