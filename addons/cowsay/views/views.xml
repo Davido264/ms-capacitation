@@ -1,91 +1,64 @@
 <odoo>
-  <data>
-    <!-- explicit list view definition -->
-    <record model="ir.ui.view" id="cowsay.list">
-      <field name="name">cowsay list</field>
-      <field name="model">cowsay.cowsay</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="message"/>
-          <field name="description"/>
-        </tree>
-      </field>
-    </record>
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="cowsay.list">
+            <field name="name">cowsay list</field>
+            <field name="model">cowsay.cowsay</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="message"/>
+                    <field name="description"/>
+                    <field name="type"/>
+                    <button name="display_popup" type="object" string="display" class="oe_highlight" />
+                </tree>
+            </field>
+        </record>
 
-    <record model="ir.ui.view" id="cowsay.form">
-      <field name="name">cowsay form</field>
-      <field name="model">cowsay.cowsay</field>
-      <field name="arch" type="xml">
-        <form>
-            <group>
-                <field name="name" />
-                <field name="description" />
-                <field name="message" />
-            </group>
-        </form>
-      </field>
-    </record>
+        <record model="ir.ui.view" id="cowsay.form">
+            <field name="name">cowsay form</field>
+            <field name="model">cowsay.cowsay</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="name" />
+                        <field name="description" />
+                        <field name="message" />
+                        <field name="cow" widget="selection" />
+                    </group>
+                </form>
+            </field>
+        </record>
 
-    <record model="ir.ui.view" id="cowsay.view">
-      <field name="name">cowsay view</field>
-      <field name="model">cowsay.cowsay</field>
-      <field name="arch" type="xml">
-          <form>
-            <notebook>
-                <page name="Cowsay">
-                    <h1><field name="name"/></h1>
-                    <pre style="font-family: monospaced;">
-                        <field name="display" />
-                    </pre>
-                </page>
-            </notebook>
-          </form>
-      </field>
-    </record>
+        <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="cowsay.action_window">
+            <field name="name">Cows</field>
+            <field name="res_model">cowsay.cowsay</field>
+            <field name="view_mode">tree,form</field>
+        </record>
 
-
-    <!-- actions opening views on models -->
-    <record model="ir.actions.act_window" id="cowsay.action_window">
-      <field name="name">Cows</field>
-      <field name="res_model">cowsay.cowsay</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-
-    <record model="ir.actions.act_window" id="cowsay.editor_window">
-      <field name="name">Cow Editor</field>
-      <field name="res_model">cowsay.cowsay</field>
-      <field name="view_mode">form</field>
-    </record>
+        <!-- wizard  -->
+        <record id="message_wizard_form" model="ir.ui.view">
+            <field name="name">message.wizard.form</field>
+            <field name="model">message.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <p style="font-family:monospace; text-align:left;">
+                        <field name="message" readonly="1"/>
+                    </p>
+                    <footer>
+                    </footer>
+                </form>
+            </field>
+        </record>
 
 
-    <!-- server action to the one above -->
-    <record model="ir.actions.server" id="cowsay.action_server">
-      <field name="name">cowsay server</field>
-      <field name="model_id" ref="model_cowsay_cowsay"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
-      </field>
-    </record>
+        <!-- Top menu item -->
+        <menuitem name="Cowsay" id="cowsay.menu_root"/>
 
-    <!-- Top menu item -->
-    <menuitem name="Cowsay" id="cowsay.menu_root"/>
+        <!-- menu categories -->
+        <menuitem name="Cows" id="cowsay.menu_1" parent="cowsay.menu_root" action="cowsay.action_window"/>
+        <!-- actions -->
 
-    <!-- menu categories -->
-    <menuitem name="Menu 1" id="cowsay.menu_1" parent="cowsay.menu_root"/>
-    <menuitem name="Menu 2" id="cowsay.menu_2" parent="cowsay.menu_root"/>
-    <!-- actions -->
-
-    <menuitem name="Create Cow" id="cowsay.menu_1_list" parent="cowsay.menu_1"
-              action="cowsay.action_server"/>
-
-    <menuitem name="Server to list" id="cowsay" parent="cowsay.menu_2"
-              action="cowsay.editor_window"/>
-
-  </data>
+    </data>
 </odoo>

@@ -8,3 +8,4 @@ sys.path.insert(0,odoo_path)
 
 from . import controllers
 from . import models
+from . import wizard

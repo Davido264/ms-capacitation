@@ -10,11 +10,18 @@ class cowsay(models.Model):
     name = fields.Text(required=True, default="cow")
     message = fields.Text(required=True)
     description = fields.Text(required=True)
-    # cow = fields.Selection(selection=[(i) for i in char_names],default="cow")
-    display = fields.Text(compute="_cowsay")
+    cow = fields.Selection(selection=[(i,i) for i in char_names],default="cow",string="type")
 
-    @api.depends("message")
-    def _cowsay(self):
-        for record in self:
-            record.display = get_output_string("cows", self.message)
+    def get_output_string(self) -> str:
+        return get_output_string(self.cow, self.message) or ""
+
+    def display_popup(self) -> dict:
+        id = self.env['message.wizard'].create({'message': self.get_output_string() }).id
+        return {
+            "type": "ir.actions.act_window",
+            "view_mode": "form",
+            "res_model": "message.wizard",
+            "res_id": id,
+            "target": "new"
+        }
 
