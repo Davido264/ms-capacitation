@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_opti_opti,opti.opti,model_opti_opti,base.group_user,1,1,1,1
