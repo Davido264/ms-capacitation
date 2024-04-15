@@ -42,6 +42,7 @@
 
           nativeBuildInputs = [
             pkgs.autoPatchelfHook
+            pkgs.libcxx
           ];
 
           buildInputs = with pkgs; [
@@ -51,7 +52,6 @@
             xorg.libXrender
             openssl_1_1
             fontconfig
-            # libstdc++
             stdenv.cc.cc.lib
           ];
         };
@@ -114,8 +114,6 @@
             elif [ -f env/bin/activate ]; then
               source env/bin/activate
             fi
-
-            cowsay -t "${name}" | lolcat
           '';
         };
       });
