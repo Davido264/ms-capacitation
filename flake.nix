@@ -99,6 +99,11 @@
           shellHook = ''
             export PATH=result/local/bin:$PATH
             export PGDATA="$(pwd)/postgres/data/"
+            if [ ! -d $PGDATA ]; then
+              mkdir -p $PGDATA
+              pg_ctl -s init -o "-E UTF-8 --no-locale -A trust" -D $PGDATA
+
+            fi
 
             # Required for VS Code extensions, when VS Code from nix shell
             export LD_LIBRARY_PATH=${pkgs.lib.makeLibraryPath [
