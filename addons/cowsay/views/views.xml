@@ -9,7 +9,7 @@
                     <field name="name"/>
                     <field name="message"/>
                     <field name="description"/>
-                    <field name="type"/>
+                    <field name="cow"/>
                     <button name="display_popup" type="object" string="display" class="oe_highlight" />
                 </tree>
             </field>

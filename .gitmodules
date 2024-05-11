@@ -1,8 +1,9 @@
-[submodule "odoo"]
-	path = odoo
-	url = https://github.com/odoo/odoo.git
-	branch = 16.0
 [submodule "stubs/odoo"]
 	path = stubs/odoo
 	url = https://github.com/odoo-ide/odoo-stubs.git
-	branch = 17.0
+	branch = 16.0
+
+[submodule "ms-opti"]
+	path = ms-opti
+	url = git@github.com:Davido264/ms-opti.git
+	branch = testing
