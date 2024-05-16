@@ -31,6 +31,5 @@ services:
       - ./addons:/mnt/extra-addons
       - ./odoo:/etc/odoo
       - ./ms-opti:/opt/ms-opti
-      - ./dist-packages:/usr/lib/python3/dist-packages # Persist packages, so it doesn't install additional packages on every boot
     restart: always             # run as a service
 

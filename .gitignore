@@ -178,4 +178,3 @@ pyrightconfig.json
 postgresql
 data
 .direnv
-dist-packages
