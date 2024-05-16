@@ -27,9 +27,10 @@ services:
     volumes:
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
-      - ./odoo/entrypoint.sh:/entrypoint.sh   # if you want to install additional Python packages, uncomment this line!
+      - ./odoo/entrypoint.sh:/entrypoint.sh # Install aditional python packages
       - ./addons:/mnt/extra-addons
       - ./odoo:/etc/odoo
       - ./ms-opti:/opt/ms-opti
+      - ./dist-packages:/usr/lib/python3/dist-packages # Persist packages, so it doesn't install additional packages on every boot
     restart: always             # run as a service
 
