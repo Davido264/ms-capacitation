@@ -1,0 +1,7 @@
+<odoo>
+    <data>
+        <record id="route_0" model="opti.route">
+            <field name="name">Ruta Principal 1</field>
+        </record>
+    </data>
+</odoo>

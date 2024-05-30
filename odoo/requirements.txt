@@ -1,2 +1,2 @@
-/opt/ms-opti
+-e /opt/ms-opti
 cowsay

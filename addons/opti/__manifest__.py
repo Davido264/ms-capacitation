@@ -3,13 +3,13 @@
 {
     'name': "opti",
 
-    'summary': "Short (1 phrase/line) summary of the module's purpose",
+    'summary': "Optimization Module",
 
     'description': """
-    This is a nice module
+    Mivilsoft optimization module
     """,
 
-    'author': "My Company",
+    'author': "Mivilsoft",
     'website': "https://www.yourcompany.com",
 
     # Categories can be used to filter modules in modules listing
@@ -19,7 +19,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base','fleet'],
     'application': True,
     'installable': True,
 
@@ -32,7 +32,7 @@
 
     # only loaded in demonstration mode
     'demo': [
-        'demo/demo.xml',
+        'demo/routes.xml',
+        'demo/stops.xml',
     ],
 }
-

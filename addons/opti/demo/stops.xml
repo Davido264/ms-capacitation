@@ -1,0 +1,75 @@
+<odoo>
+    <data>
+        <record id="stop_0" model="opti.stop">
+            <field name="name">Alborada</field>
+            <field name="time">240</field>
+            <field name="route" ref="opti.route_0" />
+        </record>
+
+        <record id="stop_1" model="opti.stop">
+            <field name="name">Calle Ruilova</field>
+            <field name="time">540</field>
+            <field name="route" ref="opti.route_0" />
+        </record>
+        <record id="stop_2" model="opti.stop">
+            <field name="name">Calle Carihuairazo</field>
+            <field name="time">360</field>
+            <field name="route" ref="opti.route_0" />
+        </record>
+        <record id="stop_3" model="opti.stop">
+            <field name="name">Ex KIA Motors</field>
+            <field name="time">420</field>
+            <field name="route" ref="opti.route_0" />
+        </record>
+        <record id="stop_4" model="opti.stop">
+            <field name="name">Vereda Tropical</field>
+            <field name="time">300</field>
+            <field name="route" ref="opti.route_0" />
+        </record>
+        <record id="stop_5" model="opti.stop">
+            <field name="name">Camino hacia el Futuro</field>
+            <field name="time">960</field>
+            <field name="route" ref="opti.route_0" />
+        </record>
+        <record id="stop_6" model="opti.stop">
+            <field name="name">Las Piedras</field>
+            <field name="time">180</field>
+            <field name="route" ref="opti.route_0" />
+        </record>
+        <record id="stop_7" model="opti.stop">
+            <field name="name">Cosmopolita</field>
+            <field name="time">360</field>
+            <field name="route" ref="opti.route_0" />
+        </record>
+        <record id="stop_8" model="opti.stop">
+            <field name="name">Licorería Zona Fría</field>
+            <field name="time">360</field>
+            <field name="route" ref="opti.route_0" />
+        </record>
+        <record id="stop_9" model="opti.stop">
+            <field name="name">Calle Amazonas</field>
+            <field name="time">420</field>
+            <field name="route" ref="opti.route_0" />
+        </record>
+        <record id="stop_10" model="opti.stop">
+            <field name="name">Av Quito y Latacunga</field>
+            <field name="time">300</field>
+            <field name="route" ref="opti.route_0" />
+        </record>
+        <record id="stop_11" model="opti.stop">
+            <field name="name">Calle Machala</field>
+            <field name="time">240</field>
+            <field name="route" ref="opti.route_0" />
+        </record>
+        <record id="stop_12" model="opti.stop">
+            <field name="name">Coop JEP</field>
+            <field name="time">300</field>
+            <field name="route" ref="opti.route_0" />
+        </record>
+        <record id="stop_13" model="opti.stop">
+            <field name="name">Parada Terminal</field>
+            <field name="time">900</field>
+            <field name="route" ref="opti.route_0" />
+        </record>
+    </data>
+</odoo>
