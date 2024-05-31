@@ -1,0 +1,72 @@
+<odoo>
+    <template id="route_report_template">
+        <t t-foreach="docs" t-as="route">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h1>Reporte de rutas</h1>
+                        <p>El siguiente es un reporte de la ruta: <span t-field="route.name"/></p>
+                        <h2>Paradas pertenecientes a esta ruta</h2>
+                        <table class="table" style="margin: 1rem;">
+                            <thead>
+                                <th>Nombre de la parada</th>
+                                <th>Tiempo (s)</th>
+                                <th>Tiempo de retraso (s)</th>
+                                <th>Latitud</th>
+                                <th>Longitud</th>
+                            </thead>
+                            <tbody>
+                                <t t-set="stops" t-value="route.mapped('stops')"/>
+                                <tr t-foreach="stops" t-as="stop">
+                                    <td style="text-align: center;">
+                                        <span t-field="stop.name" />
+                                    </td>
+                                    <td style="text-align: center;">
+                                        <span t-field="stop.time" />
+                                    </td>
+                                    <td style="text-align: center;">
+                                        <span t-field="stop.dtime" />
+                                    </td>
+                                    <td style="text-align: center;">
+                                        <span t-field="stop.lat" />
+                                    </td>
+                                    <td style="text-align: center;">
+                                        <span t-field="stop.lon" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p style="margin-bottom: 2rem;">Con un total de <span t-field="route.cstops"/> paradas. Dando como resultado un tiempo total de <span t-field="route.max_time"/> segundos</p>
+                        <h2>Vehículos en la siguiente ruta</h2>
+                        <table class="table" style="margin: 1rem;">
+                            <thead>
+                                <th>Licencia</th>
+                                <th>Nombre de conductor</th>
+                                <th>Teléfono de conductor</th>
+                                <th>Disponibilidad</th>
+                            </thead>
+                            <tbody>
+                                <t t-set="vehicles" t-value="route.mapped('vehicles')"/>
+                                <tr t-foreach="vehicles" t-as="vehicle">
+                                    <td style="text-align: center;">
+                                        <span t-field="vehicle.license_plate" />
+                                    </td>
+                                    <td style="text-align: center;">
+                                        <span t-field="vehicle.mapped('driver_id').name" />
+                                    </td>
+                                    <td style="text-align: center">
+                                        <span t-field="vehicle.mapped('driver_id').phone" />
+                                    </td>
+                                    <td style="text-align: center;">
+                                        <span t-field="vehicle.state" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p style="margin-bottom: 2rem;">Con un total de <span t-field="route.cvehicles"/> vehículos asignados a la ruta.</p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

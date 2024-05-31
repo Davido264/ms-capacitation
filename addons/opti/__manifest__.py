@@ -28,6 +28,8 @@
         'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
+        'reports/route_report.xml',
+        'reports/route_report_template.xml',
     ],
 
     # only loaded in demonstration mode
