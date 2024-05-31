@@ -61,6 +61,10 @@ git clone --recurse-submodules --shallow-submodules https://github.com/Davido264
 docker-compose up
 ```
 
-3. Instalar las los módulos:
+3. Iniciar la plataforma. Esta se ejecuta sobre `localhost:10016`, y la contraseña maestra para crear la base de datos es `odoo16@2024`
+
+4. Iniciar sesión e instalar las los módulos:
+    - `Discuss`
+    - `Fleet`
     - `opti`
     - `cowsay`
