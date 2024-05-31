@@ -5,10 +5,10 @@ Este es un proyecto realizado con la finalidad de explorar y aprender sobre el d
 - **Opti:** Un módulo que administra Paradas, rutas y vehículos. Pensando en el manejo y revisión de vehículos recorriendo distintas rutas
 
 ## Índice
-1. [Capturas](#Capturas)
-2. [Tópicos aprendidos durante el proyecto](#Tópicos_aprendidos_durante_el_proyecto)
-3. [Cosas por reforzar](#Cosas_por_reforzar)
-4. [Ejecutar el proyecto](#Ejecutar_el_proyecto)
+1. [Capturas](#capturas)
+2. [Tópicos aprendidos durante el proyecto](#tópicos-aprendidos-durante-el-proyecto)
+3. [Cosas por reforzar](#cosas-por-reforzar)
+4. [Ejecutar el proyecto](#ejecutar-el-proyecto)
 
 ## Capturas
 ### Cowsay
