@@ -48,7 +48,7 @@ Este es un proyecto realizado con la finalidad de explorar y aprender sobre el d
 - Prácticas al organizar un módulo
 
 ## Ejecutar el proyecto
-> [!NOTE]- 
+> [!NOTE]
 > Para ejecutar el proyecto se requiere de una instalación de docker, docker-compose y python 3.10 hasta 3.12
 
 1. Clonar el repositorio
